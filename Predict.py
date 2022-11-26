@@ -6,7 +6,6 @@ from GetLoader import getLoader
 from Config import Config
 import cv2
 
-
 def predict(image,model):
     device = "cuda" if torch.cuda.is_available() else "cpu"
     # print(f"Using {device} device")

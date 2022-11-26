@@ -63,7 +63,7 @@ class Vocabulary:
 class FlickrDataset(Dataset):
     def __init__(self, root_dir, captions_file, transform=None, freq_threshold=5):
         self.root_dir = root_dir
-        self.df = pd.read_csv(captions_file)
+        self.df = pd.read_csv(captions_file,sep='|')
         self.transform = transform
 
         # Get img, caption columns

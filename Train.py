@@ -77,18 +77,20 @@ def train():
             optimizer.step()
         avrLoss = tempLoss / step
         print(f'Loss: {avrLoss}')
-        torch.save(model,f'models/step_{epoch}.pt')
+        if (epoch%10==0):
+            torch.save(model,f'models/step_{epoch}.pt')
+    torch.save(model,f'models/LastModel.pt')
 if __name__ == "__main__":
-    # train()
-    # MODEL_DIR = r'D:\ImageCaptioning\models\9GbDataModel'
-    # for model in os.listdir(MODEL_DIR):
-        # modelDir = os.path.join(MODEL_DIR,model) 
-        # print(f'Loading model {model} ...')
-    model = torch.load(r'D:\ImageCaptioning\models\Model.pt',map_location="cuda:0")
-    print(f'Predicting ...')
-    imgDir = r'D:\ImageCaptioning\9GB_Flick\flickr30k_images\flickr30k_images\3662865.jpg'
-    predict(imgDir,model)
-    img = cv2.imread(imgDir)
-    cv2.imshow('img',img)
-    cv2.waitKey(0)
+    train()
+    # # MODEL_DIR = r'D:\ImageCaptioning\models\9GbDataModel'
+    # # for model in os.listdir(MODEL_DIR):
+    #     # modelDir = os.path.join(MODEL_DIR,model) 
+    #     # print(f'Loading model {model} ...')
+    # model = torch.load(r'D:\ImageCaptioning\models\Model.pt',map_location="cuda:0")
+    # print(f'Predicting ...')
+    # imgDir = r'D:\ImageCaptioning\9GB_Flick\flickr30k_images\flickr30k_images\3662865.jpg'
+    # predict(imgDir,model)
+    # img = cv2.imread(imgDir)
+    # cv2.imshow('img',img)
+    # cv2.waitKey(0)
 
