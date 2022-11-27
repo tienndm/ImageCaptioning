@@ -21,7 +21,7 @@ def predict(image,model):
     result = " ".join(model.captionImages(processImg.to(device),dataset.vocab))
     result = result.replace('<SOS> ','')
     result = result.replace('<EOS>','')
-    print("Result: " + result)
+    return result
 
 
 

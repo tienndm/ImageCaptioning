@@ -1,6 +1,6 @@
 class Config():
-    embedSize = 256
-    hiddenSize = 256
+    embedSize = 512
+    hiddenSize = 512
     numLayers = 1
     numEpochs = 100
     learning_rate= 3e-4
